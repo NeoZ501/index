@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>test</title>
+        <meta name="description" content="click test">
+        <meta name="author" content="Neo">
+        <script src="script.js" defer></script>
+        <link rel="stylesheet" href="op.css">
+        <link rel="js" href="op.js">
+        <link rel="cs" href="op.cs">
+
+    </head>
+    <body>
+
+        <doc class="setup">
+            <doc class="text">
+                <p id="spacing" class="spacing spacer-tag">.</p><br class="spacer-tag">
+                <p id="text2" class="text2">INFO</p>
+                <p id="text3" class="text3"></p>
+            </doc>
+            <form>
+                <button id="start" class="start" onclick="starter()">start</button>
+
+                <button id="stop" class="stop" onclick="stoper()">stop</button>
+            </form>
+            <script>
+                var DOC = document;
+
+                function starter()
+                {
+                    DOC.getElementById("start").innerHTML = "started";
+                    DOC.getElementById("stop").innerHTML = "stop";
+                }
+
+                function stoper()
+                {
+                    DOC.getElementById("start").innerHTML = "start";
+                    DOC.getElementById("stop").innerHTML = "stoped";
+                }
+            </script>
+        </doc>
+    </body>
+</html>

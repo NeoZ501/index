@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta charset="UTF-8">
+        <title>main</title>
+        <meta name="description" content="my game">
+        <meta name="author" content="Neo">
+
+    </head>
+    <body>
+
+        <h1 style="top: auto;"><p style="color: yellowgreen;">op</p></h1>
+
+        <audio role="button">audion on/off</audio>
+
+        <p id="change1">hello</p>
+        <button type="button" onclick="change1functon()">hello</button><br>
+
+        <p id="change2">h</p>
+
+        <script>
+            var DOCID1 = "change1";
+            var DOCID2 = "change2";
+            var DOC = {Doc1: document.getElementById(DOCID1), Doc2: document.getElementById(DOCID2)};
+
+            function change1functon()
+            {
+                DOC.Doc1.innerHTML = "hello2";
+
+                
+            }
+
+            
+        </script>
+    </body>
+</html>

@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta charset="UTF-8">
+        <title>my web</title>
+        <meta name="description" content="my game">
+        <meta name="author" content="Neo">
+        
+    </head>
+    <body>
+    
+        <h1 id="main">my web</h1>
+
+        <a href="#main"></a>
+        
+        <div>
+            <p>hello, im neo</p>
+        </div>
+
+        <button type="button" onclick="my()">start code</button>
+
+        <script>
+            function my() {
+              document.getElementById("mini").innerHTML = "starting";
+
+            }
+        </script>
+
+        
+        <script src="https://koda.nu/simple.js">
+
+            startGPS();
+
+            var cont = keyboard;
+            var mo = mouse;
+            var DOCINFO = "DOC stands for document wich give you asses to all commands hopfuly easier";
+            var pl = {x: 100, y: 200, speed: 3, size: 10, color: "blue"};
+            var pl2 = {x: 200, y: 200, speed: 10, size: 3, color: "red"};
+            var texta = {color: "blue", x: 100, y: 100, size: 15};
+            var timer = "0";
+            var t = texta;
+            var l = 999;
+            var DOC = {info: DOCINFO, pl2: pl2, pl: pl, cont: cont, textcolor: texta.color, mouse: mouse, c: c, l: l, t: t, timer: timer, texta: texta};
+
+
+          function update()
+          {
+            fill("green");
+            
+            circle(pl.x, pl.y, pl.size, pl.color);
+            circle(pl2.x, pl2.y, pl2.size, pl2.color)
+
+            if (cont.w)
+            {
+                pl2.y -= pl2.speed;
+            }
+
+            if (cont.s)
+            {
+                pl2.y += pl2.speed;
+            }
+
+            if (cont.d)
+            {
+                pl2.x += pl2.speed;
+            }
+
+            if (cont.a)
+            {
+                pl2.x -= pl2.speed;
+            }
+
+            text(t.x, t.y, t.size, "game started", t.color);
+            text(t.x, t.y-15, t.size, ""+timer, "green");
+            text(t.x, t.y+20, t.size, "if you get near each outher pl1 will get 10% biger else if press c pl2 get biger, the kontrols for pl1 is mouse and pl2 is w a s d", t.color)
+            text(t.x, t.y+70, t.size, "DOC info: "+DOCINFO, t.color)
+            text(t.x, t.y+40, t.size, "size: "+pl.size, t.color)
+
+            if (cont.e)
+            {
+                pl.speed++;
+
+                if (mo.left)
+                {
+                    pl.speed -= 1;
+
+                    if (mo.right)
+                    {
+                        pl.y -= 1;
+                    }
+                }
+            }
+
+            if (cont.q)
+            {
+                pl.size += pl.size/l;
+            }
+
+            if (cont.t)
+            {
+                text(t.x, t.y-36, t.size, "hyper mode on", t.color)
+
+                pl.speed = l-945;
+
+                
+            }
+            else
+            {
+                pl.speed = 10;
+            }
+
+            
+
+            if (cont.c)
+            {
+                if (distance(pl2, pl) < pl.size)
+                {
+                    text(t.x, t.y-60, t.size, "pl2 eatened pl1 and will get size 10% biger", t.color);
+                    pl2.x = 200;
+                    pl2.y = 200;
+                    pl.x = 100;
+                    pl.y = 200;
+
+                    pl2.size += 10;
+                    pl2.speed -= pl.speed/l;
+                }
+            }
+            else
+            {
+                if (distance(pl2, pl) < pl.size)
+                {
+                    text(t.x, t.y-60, t.size, "pl1 eatened pl2 and will get size 10% biger", t.color);
+                    pl2.x = 200;
+                    pl2.y = 200;
+                    pl.x = 100;
+                    pl.y = 200;
+
+                    pl.size += 10;
+                    pl.speed -= pl.speed/l;
+                }
+            }
+
+            if (distance(mouse, pl) > 10000)
+            {
+                text(t.x+200, t.y+200, t.size+20, "your mouse arent inside this window, to play: put your mouse inside the window", "red")
+                pl.x = 100;
+                pl.y = 200;
+                pl2.x = 200;
+                pl2.y = 200;
+
+                var why = prompt("pleas give us a reason why you arent inside the window");
+
+                if (gps.accuracy > 60)
+                {
+                    text(t.x-200, t.y-230, t.size, "Accuracy low: "+gps.accuracy, "red");
+                }
+            }
+
+
+
+            timer += 1/30;
+
+            var dy = pl.speed*(mouse.y-pl.y)/distance(pl, mouse);
+            var dx = pl.speed*(mouse.x-pl.x)/distance(pl, mouse);
+
+            pl.x += dx;
+            pl.y += dy;
+          }
+  
+        </script>
+        
+    </body>
+</html>

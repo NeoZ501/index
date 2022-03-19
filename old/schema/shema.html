@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>my web</title>
+        <meta name="description" content="my web">
+        <meta name="author" content="Neo">
+        <script src="script.js" defer></script>
+        <link rel="stylesheet" href="shema.css">
+        <link rel="cs" href="shema.cs">
+        <link rel="js" href="shema.js">
+
+    </head>
+    <body>
+
+        <div class="shema">
+
+            <!-- Eddies text and buttons -->
+
+            <div class="text-Eddie">
+                <h1 id="text1" class="text1"> friends shema</h1>
+                <ul>
+                    <li id="text2" class="text2">Eddie <br> <img class="images-youtube" src="images/YouTube Logo.png"></li>
+                    <li id="text3" class="text3"></li>
+                </ul>
+            </div>
+
+            <div class="buttons-Eddie">
+                <br><br>
+                <button onclick="addone()" id="add1" class="add1" data-add1>aviable?</button>
+                <button onclick="removeone()" id="remove1" class="remove1" data-remove1>not aviable?</button>
+            </div>
+
+            <!-- Emils text and buttons -->
+
+            <div class="text-Emil">
+                <ul>
+                    <li id="text4" class="text4">Emil <br> <img class="images-sizer" src="images/Album 1.png"></li>
+                    <li id="text5" class="text5"></li>
+                </ul>
+            </div>
+
+            <div class="buttons-Emil">
+                <br><br>
+                <button onclick="addtwo()" id="add2" class="add2" data-add2>aviable?</button>
+                <button onclick="removetwo()" id="remove2" class="remove2" data-remove2>not aviable?</button>
+            </div>
+
+            <!-- script for buttons and texts -->
+
+            <script>
+                // Setup/vriables and const
+
+                var DOC = document;
+                var text1 = DOC.getElementById("text1");
+                var text2 = DOC.getElementById("text2");
+                var text3 = DOC.getElementById("text3");
+                var text4 = DOC.getElementById("text4");
+                var text5 = DOC.getElementById("text5");
+                var button1 = DOC.getElementById("add1");
+                var button2 = DOC.getElementById("remove1");
+                var button3 = DOC.getElementById("add2");
+                var button4 = DOC.getElementById("remove2");
+                var info = {addRemove1: text3, addRemove2: text5};
+                var stats = {aviable: "aviable", notAviable: "Not aviable"};
+                var OnOff = 1;
+
+                const add1 = document.querySelector("[data-add1]");
+                const remove1 = document.querySelector("[data-remove1]");
+                const add2 = document.querySelector("[data-add2]");
+                const remove2 = document.querySelector("[data-remove2]");
+
+                // if Eddie is aviable  or not
+
+                function addone()
+                {
+                    info.addRemove1.innerHTML = stats.aviable;
+                    console.log("Eddie(1): "+stats.aviable)
+                    button1.innerHTML = "is "+stats.aviable;
+                    button2.innerHTML = stats.notAviable+"?";
+                    OnOff = 1;
+                    console.log(OnOff+", if 1 aviable");
+                }
+
+                function removeone()
+                {
+                    info.addRemove1.innerHTML = stats.notAviable;
+                    console.log("Eddie(1): "+stats.notAviable)
+                    button1.innerHTML = stats.aviable+"?";
+                    button2.innerHTML = "is "+stats.notAviable;
+                    OnOff = 0;
+                    console.log(OnOff+", if 1 aviable");
+                }
+
+                // if Emil is aviable  or not
+
+                function addtwo()
+                {
+                    info.addRemove2.innerHTML = stats.aviable;
+                    console.log("Emil(2): "+stats.aviable)
+                    button3.innerHTML = "is "+stats.aviable;
+                    button4.innerHTML = stats.notAviable+"?";
+                    OnOff = 1;
+                    console.log(OnOff+", if 1 aviable");
+                }
+
+                function removetwo()
+                {
+                    info.addRemove2.innerHTML = stats.notAviable;
+                    console.log("Emil(2): "+stats.notAviable)
+                    button3.innerHTML = stats.aviable+"?";
+                    button4.innerHTML = "is "+stats.notAviable;
+                    OnOff = 0
+                    console.log(OnOff+", if 1 aviable");
+                }
+
+                // console = message page about if system working or what system are doing
+                // all messages sending when loaded in
+                console.log(OnOff+", if 1 aviable");
+            </script>
+        </div>
+    </body>
+</html>

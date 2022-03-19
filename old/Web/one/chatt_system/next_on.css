@@ -1,0 +1,24 @@
+* {
+    color: aqua;
+}
+
+.blue-bg-big {
+    padding: .25em;
+    padding-left: .25em;
+    width: 10;
+    background-size: .25rem;
+    display: flex;
+    font-family: sans-serif;
+    background-color: blue;
+    box-sizing: content-box;
+}
+
+.blue-bg-small {
+    padding: .0005em;
+    padding-left: .60em;
+    width: 10;
+    background-size: 2rem;
+    display: flex;
+    font-family: sans-serif;
+    background-color: blue;
+}

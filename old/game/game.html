@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>test</title>
+        <meta name="description" content="click test">
+        <meta name="author" content="Neo">
+        <script src="script.js" defer></script>
+        <link rel="stylesheet" href="game.css">
+        <link rel="js" href="game.js">
+        <link rel="cs" href="game.cs">
+
+    </head>
+    <body>
+
+        <p>heeeellllooo</p>
+
+        <script class="script/functionality" src="https://koda.nu/simple.js">
+            var size = {z: 20, size: 20}
+            var td = {x: 350, y: 200, z: size.z, size: size.size, cont: keyboard, speed: 10}
+            var score = 0;
+            var l = {x: 1000, y: 1000}
+
+            function update()
+            {
+                fill("green")
+
+                circle(td.x, td.y, td.z, "red");
+
+                text(100, 100, 20, "ball score: "+score, "orange")
+
+                if (td.cont.w)
+                {
+                    td.z += td.speed;
+                    td.y += td.speed;
+
+                    if (td.cont.a)
+                    {
+                        td.x += td.speed;
+                        td.y += td.speed;
+                    }
+
+                    if (td.cont.d)
+                    {
+                        td.x += td.speed;
+                        td.y += td.speed;
+                    }
+                }
+                else
+                {
+                    if (mouse.y < td.y+3)
+                    {
+
+                    }
+                    else
+                    {
+                        rectangle(td.x-10000/2, td.y+td.z+3, 10000, 10, "orange")
+                    }
+                }
+
+                if (td.z > 20)
+                {
+                    if (td.cont.s)
+                    {
+                        td.z -= td.speed;
+                        td.y -= td.speed;
+
+                        if (td.cont.a)
+                        {
+                            td.x -= td.speed;
+                            td.y -= td.speed;
+                        }
+
+                        if (td.cont.d)
+                        {
+                            td.x -= td.speed;
+                            td.y -= td.speed;
+                        }
+                    }
+                }
+
+                if (td.cont.a)
+                {
+                    td.x -= td.speed;
+                }
+
+                if (td.cont.d)
+                {
+                    td.x += td.speed;
+                }
+
+                if (td.cont.q)
+                {
+                    td.y -= td.speed;
+                }
+
+                if (td.cont.e)
+                {
+                    td.y += td.speed;
+                }
+
+                if (td.y < 200)
+                {
+                    td.y += td.speed;
+                }
+
+                if (td.y > 200)
+                {
+                    td.y -= td.speed;
+                }
+
+                if (td.z > 20)
+                {
+                    td.z -= td.speed;
+                }
+
+                if (distance(mouse, td) < td.size)
+                {
+                    td.x = 350;
+                    td.y = 200;
+                    score++;
+                }
+
+                if (distance(mouse, td) > 10000)
+                {
+                    td.x = 350;
+                    td.y = 200;
+                    text(200, 100, 10, "mouse not inside window/mouse position: "+mouse.x+mouse.y, "yellow")
+                }
+
+                if (td.cont.f)
+                {
+                    rectangle(mouse.x-10000/2, l.y, 10000, 10, "pink")
+                    l.y -= 8;
+                    if (distance(mouse, td) < td.size+30)
+                    {
+                        score -= 1;
+                        text(100, 300, 20, "score to mouse", "red")
+                    }
+                }
+
+                var dx = td.speed*(mouse.x-td.x)/distance(mouse, td);
+                var dy = td.speed*(mouse.y-td.y)/distance(mouse, td);
+
+                td.x += dx;
+                td.y += dy;
+            }
+            
+        </script>
+
+    </body>
+</html>

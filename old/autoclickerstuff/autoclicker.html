@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>click test</title>
+        <meta name="description" content="click test">
+        <meta name="author" content="Neo">
+        <script src="script.js" defer></script>
+        <link rel="stylesheet" href="styles.css">
+        <link rel="js" href="autoclicker.js">
+        <link rel="cs" href="autoclicker2.cs">
+
+    </head>
+    <body>
+        <div class="setup">
+
+            <ul>
+                <li class="text1" id="text1">STAST/INFO</li>
+                <li class="text2" id="text2"></li>
+                <li class="text3" id="text3"></li>
+            </ul>
+            <form classs="buttons-inputs">
+                <input class="input-one" value="send a message">
+                <div>
+                    <p>not copyrite<input class="input-two" type="checkbox"></p>
+                </div>
+            </form>
+        </div>
+
+        <div data-autoclicker>
+            <button onclick="count()" draggable="true" id="test" type="submit">click</button><br>
+            <button onclick="start()" draggable="false" aria-details="start auto clicker" id="start" class="only-owner" data-start>start</button>
+            <button onclick="stop()" draggable="false" aria-details="stop auto clicker" id="stop" class="only-owner" data-stoper>stop</button>
+        </div>
+
+        <script id="script-input">
+            var button = document.getElementById("test");
+            var counter = 0;
+            var ammount = 1;
+
+            const autoclicker = document.querySelector("[data-autoclicker]");
+            const starter = document.querySelector("[data-start]");
+            const stoper = document.querySelector("[data-stoper]");
+
+            function start() {
+                starter.innerHTML = "started";
+                stoper.innerHTML = "stop";
+                document.getElementById("text1").innerHTML = "started";
+                setInterval(function(){
+                    button.click()
+                },ammount);
+                ammount = 1;
+                console.log(ammount+", if 1 - on")
+            }
+
+            function stop() {
+                starter.innerHTML = "start";
+                stoper.innerHTML = "stoped";
+                document.getElementById("text1").innerHTML = "stoped";
+                ammount = 0;
+                console.log(counter+", clicks")
+            }
+
+            function count() {
+                counter += ammount;
+                document.getElementById("text2").innerHTML = counter;
+                console.log(counter+", clicks")
+                console.log(ammount+", if 1 - on")
+            }
+
+            console.log(counter+", clicks")
+            console.log(ammount+", if 1 - on")
+            console.log("starting upp click tester")
+            console.log("click tester on")
+        </script>
+    </body>
+</html>

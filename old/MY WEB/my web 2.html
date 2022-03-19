@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta charset="UTF-8">
+        <title>my web</title>
+        <meta name="description" content="my web">
+        <meta name="author" content="Neo">
+        <link rel="stylesheet" href="stylesheet.css">
+        
+    </head>
+    <body>
+        
+        <h1 id="myweb">my web <a href="#myweb" style="text-decoration: none;">✔️</a></h1>
+
+        <script>
+            var DOCID1 = "";
+            var DOCID2 = "";
+            var DOC = {1: document.getElementById(DOCID1), 2: document.getElementById(DOCID2)};
+        </script>
+
+        <script src="https://koda.nu/simple.js">
+            startGPS();
+            var p = {x: 200, y: 200, speed: 10, size: 20, color1: "red", color2: "blue"};
+            var p1 = {x: p.x, y: p.y, speed: p.speed, size: p.size, color: p.color1};
+            var p2 = {x: p.x-100, y: p.y-100,  speed: p.speed, size: p.size, color: p.color2};
+            var cont = keyboard;
+
+            function update()
+            {
+                fill("green");
+
+                circle(p1.x, p1.y, p1.size, p1.color);
+                circle(p2.x, p2.y, p2.size, p2.color);
+
+                rectangle();
+
+                if (cont.w)
+                {
+                    p2.y -= p2.speed*2;
+                }
+
+                if (cont.s)
+                {
+                    p2.y += p2.speed*2;
+                }
+
+                if (cont.d)
+                {
+                    p2.x += p2.speed*2;
+                }
+
+                if (cont.a)
+                {
+                    p2.x -= p2.speed*2;
+                }
+
+                if (distance(mouse, p1) > 10000)
+                {
+                    p1.x = 200;
+                    p1.y = 200;
+                    p2.x = 100;
+                    p2.y = 100;
+                    text(200, 100, 20, "mouse not in window", "red");
+                }
+
+                if (gps.accuracy > 60)
+                {
+                    text(200, 130, 20, "Accuracy low: "+gps.accuracy, "red");
+                    return;
+                }
+
+                dx = p1.speed*(mouse.x-p1.x)/distance(mouse, p1);
+                dy = p1.speed*(mouse.y-p1.y)/distance(mouse, p1);
+
+                p1.x += dx;
+                p1.y += dy;
+            }
+        </script>
+    </body>
+</html>
+

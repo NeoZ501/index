@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>my web</title>
+        <meta name="description" content="my web">
+        <meta name="author" content="Neo">
+        <script src="script.js" defer></script>
+        <link rel="stylesheet" href="styles.css">
+
+    </head>
+    <body>
+        <div class="search-wrapper">
+            <label for="search">Search Users</label><br>
+            <input type="search" id="search" data-search>
+        </div>
+        <div class="user-cards" data-user-cards-container></div>
+        <template data-user-template>
+            <div class="card">
+                <div class="header" data-header></div>
+                <div class="body" data-body></div>
+                <button href="" id="goTo" class="bu" data-bu></button>
+            </div>
+        </template>
+
+
+    </body>
+    <video width="320" height="240" controls>
+        <source src="Video.mp4" type="video/mp4">
+    </video>
+</html>

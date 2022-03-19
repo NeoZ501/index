@@ -1,0 +1,15 @@
+* {
+    padding: 0;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    align-content: center;
+    font-weight: 5;
+}
+
+.text1 {
+    color: aqua;
+}
+
+.images-sizer {
+    width: 25px;
+    height: 30px;
+}

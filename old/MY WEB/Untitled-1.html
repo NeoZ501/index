@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta charset="UTF-8">
+        <title>my web</title>
+        <meta name="description" content="my web">
+        <meta name="author" content="Neo">
+        <link rel="stylesheet" href="stylesheet.css">
+
+    </head>
+    <body>
+
+        <script src="https://koda.nu/simple.js">
+            var p = {x: 200, y: 200, speed: 10, size: 20, color: "red"};
+            var mos = {ca1: p};
+            var cont = keyboard;
+            var display = {he: totalHeight, wi: totalWidth};
+            var disc = diplay;
+            var i = 0;
+            var l = p[i];
+            var l = l[i];
+
+            function update()
+            {
+                fill("green");
+
+                if (cont.e)
+                {
+                    rectangle(disc.he-30, disc.wi-30, disc.he, disc.wi, "red")
+                }
+
+                // under script...
+
+                dx = p.speed*(mouse.x-p.x)/distance(mouse, p);
+                dy = p.speed*(mouse.y-p.y)/distance(mouse, p);
+
+                p.x += dx;
+                p.y += dy;
+            }
+        </script>

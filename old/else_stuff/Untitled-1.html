@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta charset="UTF-8">
+        <title>my web</title>
+        <meta name="description" content="my game">
+        <meta name="author" content="Neo">
+
+    </head>
+    <body>
+        <script src="https://koda.nu/simple.js">
+            var cont = Keyboard;
+            var DOC = document;
+            var si = totalHeight+totalHeight;
+            var r = {x: random(1, si), y: random(1, si)};
+            var pl1 = {x: 200, y: 200, speed: 10, size: 10, color: "red"};
+            var pl2 = {x: 200, y: 200, speed: 10, size: 10, color: "red"};
+            var cir = circle;
+            var display = {height: totalHeight, width: totalWidth, text: text, circ: circle, rec: rectangle, randplace: random(r.x, r.y)};
+            var p = {pl1: pl1, pl2: pl2};
+            var s = display.randplace-r.y+r.x;
+
+            function update(l)
+            {
+                fill("green")
+                r.y = random(1, si)
+                r.x = random(1, si)
+                text(100, 100, 20, "random number: "+display.randplace, "red")
+
+                circle(pl1.x, pl1.y, pl1.size, "red")
+                
+
+                if (distance(mouse, pl1) > 10000)
+                {
+                    pl1.x = 200;
+                    pl1.y = 200;
+                    r.y = random(2, 100);
+                    display.randplace = random(r.x, r.y);
+                    circle(s, s-s/s+s/s, pl1.size, "red")
+                    s = display.randplace-r.y+r.x;
+                    text(100, 130, 20, "mouse not in window", "red")
+
+                    r.y = display.randplace;
+                    r.x = display.randplace;
+
+                    r.y += mouse.y/mouse.y;
+                    r.x += mouse.x/mouse.x;
+
+                    
+                }
+                else
+                {
+                    circle(s, s-s/s+s*s, pl1.size, "red")
+                }
+
+                var dy1 = pl1.speed*(mouse.y-pl1.y)/distance(pl1, mouse);
+                var dx1 = pl1.speed*(mouse.x-pl1.x)/distance(pl1, mouse);
+
+                var dy2 = pl2.speed*(mouse.y-pl2.y)/distance(pl2, mouse);
+                var dx2 = pl2.speed*(mouse.x-pl2.x)/distance(pl2, mouse);
+
+                pl1.x += dx1;
+                pl1.y += dy1;
+
+                pl2.x += dx2;
+                pl2.y += dy2;
+            }
+        </script>

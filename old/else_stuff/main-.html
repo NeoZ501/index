@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta charset="UTF-8">
+        <title>main</title>
+        <meta name="description" content="my game">
+        <meta name="author" content="Neo">
+        
+
+    </head>
+    <body>
+
+        <script src="https://koda.nu/simple.js">
+
+            var pl = {x: 200, y: 200, speed: 10, size: 20, color: "red"};
+            var p = pl;
+            var cont = Keyboard;
+            var pl1 = {x: pl.x+random(1, 100), y: pl.y+random(1, 100), speed: pl.speed, size: pl.size, color: "red"};
+            var pl2 = {x: 100, y: 100, speed: 10, size: pl.size, color: "blue"};
+
+
+            function update()
+            {
+                fill("green");
+
+                pl1.x = pl.x;
+                pl1.y = pl.y;
+                pl1.speed = pl.speed;
+
+                
+
+                circle(pl.x, pl.y, pl.size, pl.color);
+                circle(pl1.x, pl1.y, pl1.size, pl1.color);
+                circle(pl2.x, pl2.y, pl2.size, pl2.color);
+
+                if (cont.w)
+                {
+                    pl2.y -= pl2.speed;
+                }
+
+                if (cont.s)
+                {
+                    pl2.y += pl2.speed;
+                }
+
+                if (cont.d)
+                {
+                    pl2.x += pl2.speed;
+                }
+
+                if (cont.a)
+                {
+                    pl2.x -= pl2.speed;
+                }
+
+                
+
+                if (distance(pl1, pl2) < pl.size)
+                {
+                    pl2.x = 100;
+                    pl2.y = 100;
+                    pl.x = 200;
+                    pl.y = 200;
+                }
+
+                var dy = pl.speed*(mouse.y-pl.y)/distance(pl, mouse);
+                var dx = pl.speed*(mouse.x-pl.x)/distance(pl, mouse);
+
+                pl.x += dx;
+                pl.y += dy;
+                
+            }
+        </script>
+    </body>
+</html>
