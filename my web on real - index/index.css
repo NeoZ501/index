@@ -1,0 +1,47 @@
+* {
+    padding: 0;
+    color: black;
+}
+
+.text-1 ul {
+    display: flex;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
+.text1 {
+    display: flex;
+    padding-bottom: 50%;
+}
+
+.text2 {
+    display: flex;
+    padding-bottom: 50%;
+}
+
+.text3 {
+    display: flex;
+    padding-bottom: 50%;
+}
+
+.text4 {
+    display: flex;
+    padding-bottom: 50%;
+}
+
+.v1 {
+    background-color: aqua;
+    padding-left: 50%;
+    padding-bottom: 10%;
+    border: 10%;
+    width: 10%;
+    height: 10%;
+    padding-top: 50%;
+    align-self: center;
+    size: 50%;
+    text-align: center;
+    text-decoration: none;
+    background-position: center;
+    column-width: 50%;
+}
+
+

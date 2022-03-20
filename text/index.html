@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>my</title>
+        <meta name="description" content="my">
+        <meta name="author" content="Neo">
+        <script src="index.js" defer></script>
+        <link rel="stylesheet" href="index.css">
+        <link rel="js" href="index.js">
+        <link rel="cs" href="index.cs">
+
+    </head>
+    <body>
+
+        <div id="setup" class="panel fixed mittle">
+            <!-- texts -->
+            <h1>click test v2 (no autoclicker edision)</h1>
+            <p>welkome to our click tester, more info <a href="">here</a></p>
+            <p>Sory about the problem/future of the timers always speeding up after pressing the click me button, you can zom out or in by holding ctrl and scrol with the scroler on your mouse - if your on a computer, if you are on phone double click fast or zom with your fingers</p>
+            <p>clicks:</p>
+            <p id="counter" class="counter">0</p>
+            <p>timer by seconds (lagy):</p>
+            <p id="timers" class="timers">0</p>
+            <p>timer by miliseconds:</p>
+            <p id="miliseconds" class="miliseconds">0</p>
+            <!-- buttons -->
+            <div class="fixed">
+                <button onclick="functionadder()" id="adder" class="button button-inner-transparent" data-adder>click me</button><br>
+                <button onclick="update()" id="updater" class="button-transparent"></button>
+                <button onclick="updateExtreme()" id="updaterExtreme" class="button-transparent"></button>
+            </div>
+            <!-- making buttons and some text have a functionality -->
+            <script>
+                // seting up variables and consts
+                var adder = document.getElementById("adder");
+                var counter = document.getElementById("counter");
+                var counterNum = 0;
+                var functionOnOff = "no";
+                var updater = document.getElementById("updater");
+                var updaterExtreme = document.getElementById("updaterExtreme");
+                var timer = 0;
+                var timers = document.getElementById("timers");
+                var TmByMss = document.getElementById("miliseconds");
+                var TmByMs = 0;
+                var setup = document.getElementById("setup");
+
+                const adderfunction = document.querySelector("[data-adder]");
+
+                // the script/functionality giver
+
+                function functionadder()
+                {
+                    counterNum += 1;
+                    counter.innerHTML = counterNum;
+                    functionOnOff = "yes";
+
+                    if (functionOnOff = "yes")
+                    {
+                        adder.innerHTML = "working";
+                        setInterval(function(){
+                            updater.click()
+                        },10000);
+
+                        setInterval(function(){
+                            updaterExtreme.click()
+                        },1);
+                    }
+                }
+
+                function update()
+                {
+                    timer += 1;
+                    timers.innerHTML = timer;
+                }
+
+                var how = prompt("how do you want the setup to be, small on the side(1), destroyed/hiden 'not working' form(2) or normal/defult(3 or nothing - yust press ok with nothing writen)?");
+
+                function updateExtreme()
+                {
+                    TmByMs += 1;
+                    TmByMss.innerHTML = TmByMs;
+
+                    // the custom styling code
+
+                    if (how === "1")
+                    {
+                        setup.classList.remove("mittle");
+                        how = 0;
+                        adder.innerHTML = "working";
+                    }
+
+                    if (how === "2")
+                    {
+                        setup.classList.remove("fixed", "mittle");
+                        how = 0;
+                        adder.innerHTML = "workin";
+                    }
+
+                    if (how === "")
+                    {
+                        how = 0;
+                        adder.innerHTML = "working";
+                    }
+
+                    if (how === "3")
+                    {
+                        how = 0;
+                        adder.innerHTML = "working";
+                    }
+                }
+
+                
+                
+            </script>
+        </div>
+    </body>
+</html>
