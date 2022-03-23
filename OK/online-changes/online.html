@@ -96,6 +96,36 @@
     border-radius: 10%;
     border-color: aquamarine;
 }
+
+.extream {
+    background-color: gray;
+    padding-left: 50%;
+}
+
+.main-footer {
+    background-color: #56CCF2;
+    color: white;
+    padding: .25em 0;
+}
+
+.main-footer-container {
+    display: flex;
+    align-items: center;
+}
+
+.main-footer-container ul {
+    flex-grow: 1;
+    text-align: end;
+}
+
+.footer-nav li {
+    padding: 0 .5em;
+}
+
+.footer-nav img {
+    width: 30px;
+    height: 30px;
+}
       </style>
 
     </head>
@@ -303,7 +333,7 @@
           
             
           
-            <div id="owner" class="boarde hide">
+            <div id="owner" class="extream boarde hide"><br>
                 <button>future</button><br><br>
                 <button>future</button><br><br>
                 <button>future</button><br><br>
@@ -313,7 +343,11 @@
 </textarea>
 
                 <p>testing-output: </p>
-                <p id="testing-output">test</p>
+                <p id="testing-output" draggable="true">test</p>
+                <button onclick="ios()">get more left (future)</button>
+                <button onclick="ioss()">get more right (future)</button>
+                <button onclick="iosss()">get more down (future)</button>
+                <button onclick="iossss()">get more upp (future)</button><br><br>
             </div>
 
             <button id="oki" onclick="ok()" class="ok"></button><br>
@@ -361,6 +395,7 @@
                         console.group("opened");
                             console.warn("opened");
                         console.groupEnd("opened");
+                        alert("your opening the owner only console...")
                     }
 
                     if (st === 1)
@@ -378,7 +413,25 @@
                     var consV = document.getElementById("console").value;
                     document.getElementById("testing-output").innerHTML = consV;
                 }
-            </script><br>
+
+                function ios()
+                {
+                    
+                }
+            </script><br><br><br>
+
+            <footer class="main-footer">
+                <p>last updated: 2022-03-23, made by Neo Zetterberg, </p>
+                <h3 class="band-name">The main coding and click tester - web - binary help to</h3>
+                <div class="container main-footer-container">
+                    <ul class="nav footer-nav">
+                        <li>
+                            a
+                        </li>
+                    </ul>
+                </div>
+                <h4>soon updated and updated not long ago</h4>
+            </footer>
         </div>
     </body>
 </html>
