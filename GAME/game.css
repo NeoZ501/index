@@ -1,0 +1,55 @@
+
+.panel {
+    background-color: aqua;
+    padding-left: 50%;
+    padding-bottom: 10%;
+    border: 10%;
+    width: 10%;
+    height: 10%;
+    padding-top: 50%;
+    align-self: center;
+    size: 50%;
+    text-align: center;
+    text-decoration: none;
+    background-position: center;
+    column-width: 50%;
+    border-radius: 30%;
+    column-gap: normal;
+    contain: content;
+}
+
+.fixed {
+    padding-left: .25px;
+    padding-top: 2%;
+}
+
+.mittle {
+    width: auto;
+    height: auto;
+    background-size: cover;
+}
+
+.button {
+    color: crimson;
+    background-color: gray;
+    width: auto;
+    height: auto;
+    border-radius: 20%;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    padding: 0;
+}
+
+.button-inner-transparent {
+    background-color: transparent;
+    border: 10%;
+    size: 50%;
+    column-width: 50%;
+    border-radius: 30%;
+    column-gap: normal;
+}
+
+.button-transparent {
+    color: transparent;
+    background-color: transparent;
+    border-color: transparent;
+}

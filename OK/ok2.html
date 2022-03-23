@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>my</title>
+        <meta name="description" content="my">
+        <meta name="author" content="Neo">
+        <script src="OK.js" defer></script>
+        <link rel="stylesheet" href="OK.css">
+        <link rel="html" href="OK.html">
+
+    </head>
+    <body style="background-color: white;">
+        <textarea id="code" class="code colorcode" draggable="false">
+
+</textarea>
+        <button onclick="go()">test code</button> <a href="http://127.0.0.1:5500/OK/page.html">page (remember to copy code and paste it somwhere to not lose it)</a>
+
+        <div id="ok"><p id="coding"></p></div>
+
+        
+
+        <script>
+            function go()
+            {
+                var codeV = document.getElementById("code").value;
+                document.getElementById("coding").innerHTML = codeV;
+            }
+        </script>

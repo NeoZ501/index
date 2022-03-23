@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>click tester and coding page</title>
+        <meta name="description" content="write code here and esplore the click tester">
+        <meta name="author" content="Neo">
+        <script src="OK.js" defer></script>
+        <link rel="stylesheet" href="OK.css">
+        <link rel="html" href="ok2.html">
+      <style>
+        .panel {
+    background-color: aqua;
+    padding-left: 50%;
+    padding-bottom: 10%;
+    border: 10%;
+    width: 10%;
+    height: 10%;
+    padding-top: 50%;
+    align-self: center;
+    size: 50%;
+    text-align: center;
+    text-decoration: none;
+    background-position: center;
+    column-width: 50%;
+    border-radius: 30%;
+    column-gap: normal;
+    contain: content;
+}
+
+.fixed {
+    padding-left: .25px;
+    padding-top: 2%;
+}
+
+.mittle {
+    width: auto;
+    height: auto;
+    background-size: cover;
+}
+
+.button {
+    color: crimson;
+    background-color: gray;
+    width: auto;
+    height: auto;
+    border-radius: 20%;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    padding: 0;
+}
+
+.button-inner-transparent {
+    background-color: transparent;
+    border: 10%;
+    size: 50%;
+    column-width: 50%;
+    border-radius: 30%;
+    column-gap: normal;
+}
+
+.button-transparent {
+    color: transparent;
+    background-color: transparent;
+    border-color: transparent;
+}
+
+.notwrk {
+    height: 1px;
+    width: 1px;
+    color: aqua;
+}
+
+.code {
+    height: 200px;
+    width: 500px;
+}
+
+.coder {
+    height: 700px;
+    width: 520px;
+}
+
+.hide {
+    display: none;
+}
+
+.colorcode {
+    color: crimson;
+}
+
+.ok {
+    color: aqua;
+    background-color: aqua;
+    border-radius: 10%;
+    border-color: aquamarine;
+}
+      </style>
+
+    </head>
+    <body>
+        <div id="setup" class="panel fixed mittle">
+            <h1>click test</h1>
+            <p>this is the main click tester and code site</p>
+            <p>status: </p>
+            <p id="ONOFF-INFO">timer not on, start clicking to start timer</p>
+            <p>clicks: </p>
+            <p id="clicks">0</p>
+            <p>timer in miliseconds: </p>
+            <p id="ExreConters">0</p>
+            <p>timer in seconds: </p>
+            <p id="conters">0</p>
+            <div class="button-inner-transparent fixed">
+                <button onclick="add()" id="adder" class="button button-inner-transparent" data-adder>click me</button><br><br>
+                <button onclick="smlsid()" id="smlsid" class="button button-inner-transparent">small on side mode?</button><br><br>
+                <button onclick="nrml()" id="nrml" class="button button-inner-transparent">normal mode?</button><br><br>
+                <button onclick="stopstarte()" id="stopstart" class="button button-inner-transparent button-transparent"></button><br><br>
+                <button onclick="sti()" id="stopier" class="button button-inner-transparent button-transparent"></button><br>
+                <button onclick="update()" id="update" class="button-transparent" data-update>.</button><br>
+                <button onclick="updateExtreme()" id="updateExtreme" class="button-transparent" data-updateExtreme>.</button><br>
+                <button onclick="notwrk()" id="notwrk" class="button button-inner-transparent notwrk">not working mode, dont press this ever (only developing perpises) and made for easier developing</button>
+            </div>
+            <p>fun nowleadge - binary - and html/javascript learning here: </p>
+            <p id="binary">binary: working... (starts loading in when "click me" button has becomed pressed once)</p><br><br>
+            <div>
+                <iframe src="http://koda.nu/arkivet/80885295" class="coder">
+
+                </iframe>
+            </div>
+            <script>
+                var DOC = document;
+                var adder = DOC.getElementById("adder");
+                var updater = DOC.getElementById("update");
+                var updaterExtreme = DOC.getElementById("updateExtreme");
+                var ExreCounters = document.getElementById("ExreConters");
+                var counters = document.getElementById("conters");
+                var ExreCounter = 0;
+                var Counter = 0;
+                var clicksCNT = document.getElementById("clicks");
+                var clicks = 0;
+                var uptExre = {ammount: 1, cmd: updaterExtreme};
+                var upt = {ammount: 1000, cmd: updater};
+                var ifOnOff = document.getElementById("ONOFF-INFO");
+                var OnOff = "begin";
+                var state = {smlsid: document.getElementById("smlsid"), notwrk: document.getElementById("notwrk"), nrml: document.getElementById("nrml")};
+                var setup = document.getElementById("setup");
+                var reverser = "off";
+                var stopstart = DOC.getElementById("stopstart");
+                var StoStaOnOf = 0;
+                var ststo = 1;
+                var stopier = document.getElementById("stopier");
+                var abcBinary = {a: "0100-0001", b: "0100-0010", c: "0100-0011", d: "0100-0100",  e: "0100-0101", f: "0100-0110", g: "0100-0111", h: "0100-1000", i: "0100-1001", j: "0100-1010", k: "0100-1011", l: "0100-1100", m: "0100-1101", n: "0100-1110", o: "0100-1111", p: "0101-0000", q: "0101-0001", r: "0101-0010", s: "0101-0011", t: "0101-0100", u: "0101-0101", v: "0101-0110", w: "0101-0111", x: "0101-1000", y: "0101-1001", z: "1010-1010", space: "0010-0000"}
+                var binary = {one: "0001", two: "0010", three: "0011", four: "0100", five: "0101", six: "0110", seven: "0111", eight: "1000", nine: "1001", teen: "1010", eleven: "1011", tvelve: "1100", therteen: "1101", fourteen: "1110", fifeteen: "1111", abc: abcBinary};
+                var binaryInput = document.getElementById("binary");
+                var s = "begining to load";
+
+                const adders = document.querySelector("[data-adder]");
+                const updaters = document.querySelector("[data-update]");
+                const uptExres = document.querySelector("[data-updateExtreme]");
+
+                function add()
+                {
+                    if (OnOff = "begin")
+                    {
+                        OnOff = "on";
+                    }
+                    else
+                    {
+                        OnOff = "off";
+                    }
+                    clicks += 1;
+                    clicksCNT.innerHTML = clicks;
+                    if (OnOff = "on")
+                    {
+                        if (clicks === 1)
+                        {
+                            ifOnOff.innerHTML = "working... (you can still click, just not as specific and can miss a click)";
+
+                            setInterval(function(){
+                                updaterExtreme.click()
+                            },uptExre.ammount);
+
+                            setInterval(function(){
+                                updater.click()
+                            },upt.ammount);
+
+                            stopstart.innerHTML = "stop timer?";
+                            stopstart.classList.remove("button-transparent");
+                            stopier.innerHTML = "start timer?";
+                            stopier.classList.remove("button-transparent");
+
+                            OnOff = "off";
+                        }
+                    }
+
+                    if (OnOff = "on")
+                    {
+                        OnOff = "off";
+                        uptExre.ammount = 0;
+                        upt = 0;
+                    }
+                }
+
+                function update()
+                {
+                    if (ststo === 1)
+                    {
+                        Counter += 1;
+                        counters.innerHTML = Counter;
+                    }
+
+                    
+                }
+
+                function updateExtreme()
+                {
+
+                    if (ststo === 1)
+                    {
+                        ExreCounter += 1;
+                        ExreCounters.innerHTML = ExreCounter;
+                    }
+                    if (Counter === 1)
+                    {
+                        binaryInput.innerHTML = "binary: loading..."
+                        if (OnOff = "off")
+                        {
+                            reverser = "on";
+                        }
+                        ifOnOff.innerHTML = "timer and clicker is "+reverser;
+                    }
+
+                    if (Counter === 4)
+                    {
+                        s = "starting to load";
+                        console.log(s);
+                        binaryInput.innerHTML = "binary: "+"<br>"+"1 "+binary.one+"<br>"+"2 "+binary.two;
+                    }
+
+                    if (Counter === 5)
+                    {
+                        binaryInput.innerHTML = "binary: "+"<br>"+"1 "+binary.one+"<br>"+"2 "+binary.two+"<br>"+"3 "+binary.three;
+                    }
+
+                    if (Counter === 7)
+                    {
+                        binaryInput.innerHTML = "binary: "+"<br>"+"1 "+binary.one+"<br>"+"2 "+binary.two+"<br>"+"3 "+binary.three+"<br>"+"4 "+binary.four+"<br>"+"5 "+binary.five+"<br>"+"6 "+binary.six;
+                    }
+
+                    if (Counter === 11)
+                    {
+                        binaryInput.innerHTML = "binary: "+"<br>"+"1 "+binary.one+"<br>"+"2 "+binary.two+"<br>"+"3 "+binary.three+"<br>"+"4 "+binary.four+"<br>"+"5 "+binary.five+"<br>"+"6 "+binary.six+"<br>"+"7 "+binary.seven+"<br>"+"8 "+binary.eight+"<br>"+"9 "+binary.nine+"<br>"+"10 "+binary.teen;
+                    }
+
+                    if (Counter === 15)
+                    {
+                        binaryInput.innerHTML = "binary: "+"<br>"+"1 "+binary.one+"<br>"+"2 "+binary.two+"<br>"+"3 "+binary.three+"<br>"+"4 "+binary.four+"<br>"+"5 "+binary.five+"<br>"+"6 "+binary.six+"<br>"+"7 "+binary.seven+"<br>"+"8 "+binary.eight+"<br>"+"9 "+binary.nine+"<br>"+"10 "+binary.teen+"<br>"+"11 "+binary.eleven+"<br>"+"12 "+binary.tvelve+"<br>"+"13 "+binary.therteen+"<br>"+"14 "+binary.fourteen+"<br>"+"15 "+binary.fifeteen+"<br><br>"+"bockstäver: ";
+                    }
+
+                    if (Counter === 17)
+                    {
+                        binaryInput.innerHTML = "binary: "+"<br>"+"1 "+binary.one+"<br>"+"2 "+binary.two+"<br>"+"3 "+binary.three+"<br>"+"4 "+binary.four+"<br>"+"5 "+binary.five+"<br>"+"6 "+binary.six+"<br>"+"7 "+binary.seven+"<br>"+"8 "+binary.eight+"<br>"+"9 "+binary.nine+"<br>"+"10 "+binary.teen+"<br>"+"11 "+binary.eleven+"<br>"+"12 "+binary.tvelve+"<br>"+"13 "+binary.therteen+"<br>"+"14 "+binary.fourteen+"<br>"+"15 "+binary.fifeteen+"<br><br>"+"bockstäver: "+"<br>"+"a "+abcBinary.a+"<br>"+"a "+abcBinary.a+"<br>"+"b "+abcBinary.b+"<br>"+"c "+abcBinary.c+"<br>"+"d "+abcBinary.d+"<br>"+"e "+abcBinary.e+"<br>"+"f "+abcBinary.f+"<br>"+"g "+abcBinary.g+"<br>"+"h "+abcBinary.h+"<br>"+"i "+abcBinary.i+"<br>"+"j "+abcBinary.j+"<br>"+"k "+abcBinary.k+"<br>"+"l "+abcBinary.l+"<br>"+"m "+abcBinary.m+"<br>"+"n "+abcBinary.n+"<br>"+"o "+abcBinary.o+"<br>"+"p "+abcBinary.p+"<br>"+"q "+abcBinary.q+"<br>"+"r "+abcBinary.r+"<br>"+"s "+abcBinary.s+"<br>"+"t "+abcBinary.t+"<br>"+"u "+abcBinary.u+"<br>"+"v "+abcBinary.v+"<br>"+"w "+abcBinary.w+"<br>"+"x "+abcBinary.x+"<br>"+"y "+abcBinary.y+"<br>"+"z "+abcBinary.z+"<br>"+"space "+abcBinary.space;
+                    }
+                }
+
+                function smlsid()
+                {
+                    setup.classList.remove("mittle");
+                    console.log("took away class mittle on setup, now on smlsid mode")
+                }
+
+                function notwrk()
+                {
+                    setup.classList.remove("fixed", "mittle");
+                    console.log("took away class mittle and fixed on setup, now on notwrk mode")
+                }
+
+                function nrml()
+                {
+                    setup.classList.add("fixed", "mittle");
+                    console.log("added back or class mittle and fixed on setup already exist, now on nrml mode")
+                }
+
+                function stopstarte()
+                {
+                    if (StoStaOnOf === 0)
+                    {
+                        ststo = 0;
+                        StoStaOnOf = 1;
+                    }
+                }
+
+                function sti()
+                {
+                    if (StoStaOnOf === 1)
+                    {
+                        ststo = 1;
+                        StoStaOnOf = 0;
+                    }
+                }
+            </script><br>
+          
+            
+          
+            <div id="owner" class="boarde hide">
+                <button>future</button><br><br>
+                <button>future</button><br><br>
+                <button>future</button><br><br>
+                <button onclick="run()">run</button><br>
+                <p>this is the control box:</p><br>
+<textarea id="console">
+</textarea>
+
+                <p>testing-output: </p>
+                <p id="testing-output">test</p>
+            </div>
+
+            <button id="oki" onclick="ok()" class="ok"></button><br>
+            <button id="oki" onclick="okis()" class="ok"></button>
+
+            <script>
+                var oki = document.getElementById("oki");
+                var owner = document.getElementById("owner");
+                var st = 0;
+                var consoles = document.getElementById("console");
+
+                function ok()
+                {
+                    console.group("opening");
+                        console.log("working...");
+                        console.warn("opening the only owner panel");
+                    console.groupEnd("opening");
+
+                    if (st === 1)
+                    {
+                        console.group("closed");
+                            console.warn("closed");
+                        console.groupEnd("closed");
+                    }
+
+                    if (st === 0)
+                    {
+                        owner.classList.remove("hide")
+                        st = 1;
+                        console.group("opened");
+                            console.warn("opened the only owner panel");
+                        console.groupEnd("opened");
+                    }
+                }
+
+                function okis()
+                {
+                    console.group("closing");
+                        console.log("working...");
+                        console.warn("closing the only owner panel");
+                    console.groupEnd("closing");
+
+                    if (st === 0)
+                    {
+                        console.group("opened");
+                            console.warn("opened");
+                        console.groupEnd("opened");
+                    }
+
+                    if (st === 1)
+                    {
+                        owner.classList.add("hide")
+                        st = 0;
+                        console.group("closed");
+                            console.warn("closed the only owner panel");
+                        console.groupEnd("closed");
+                    }
+                }
+
+                function run()
+                {
+                    var consV = document.getElementById("console").value;
+                    document.getElementById("testing-output").innerHTML = consV;
+                }
+            </script><br>
+        </div>
+    </body>
+</html>

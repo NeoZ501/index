@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>my</title>
+        <meta name="description" content="my">
+        <meta name="author" content="Neo">
+        <script src="OK.js" defer></script>
+        <link rel="stylesheet" href="OK.css">
+        <link rel="html" href="OK.html">
+
+    </head>
+    <body style="background-color: white;">
+        <textarea id="code" class="code colorcode" draggable="false">
+
+</textarea>
+            <button id="button1" onclick="go()" class="">test code</button> <p id="oki">remember to copy code and paste it somwhere to not lose it</p>
+            <button id="button2" onclick="hide()">hide coding area and this button, start code</button>
+            
+            <div id="ok"><p id="coding"></p></div>
+            
+                    
+            
+            <script>
+                var code = document.getElementById("code");
+                var button1 = document.getElementById("button1");
+                var button2 = document.getElementById("button2");
+                var oki = document.getElementById("oki");
+
+                function go()
+                {
+                    var codeV = document.getElementById("code").value;
+                    document.getElementById("coding").innerHTML = codeV;
+                }
+
+                function hide()
+                {
+                    code.classList.add("hide");
+                    button1.classList.add("hide");
+                    button2.classList.add("hide");
+                    oki.classList.add("hide");
+                    var codeV = document.getElementById("code").value;
+                    document.getElementById("coding").innerHTML = codeV;
+                }
+            </script>
+
